@@ -7,11 +7,11 @@ mod consts {
 }
 
 fn main() {
-    println!("Hello, world!");
+    let result = run_webview();
 
-    match run_webview() {
-      Ok(_)  => println!("ran successfully"),
-      Err(e) => println!("Error: {}", e)
+    if let Err(ref e) = result {
+        eprintln!("Error: {}", e);
+        std::process::exit(1);
     }
 }
 
