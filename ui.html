@@ -553,26 +553,13 @@ function install_ui() {
 install_ui();
 update();
 
-// TODO: onclick
 document.addEventListener(
   'click',
   function(e) {
     var t = e.target;
-    window.external.invoke('click ' + t.toString() + ' ' + (typeof t));
-    window.external.invoke(' ' + t.prototype);
-    if (t instanceof URL) {
-        window.external.invoke('URL (URL object): ' + t.href);
-        e.preventDefault();
-        return false;
-    }
-    if (typeof t === 'string' || t instanceof String) {
-        window.external.invoke('URL (string): ' + t);
-        e.preventDefault();
-        return false;
-    }
-    if (t.tagName === 'a') {
+    if (t instanceof Element && t.tagName.toLowerCase() === 'a') {
         var url = t.getAttribute('href');
-        window.external.invoke('URL (a element): ' + url);
+        window.external.invoke(url);
         e.preventDefault();
         return false;
     }
