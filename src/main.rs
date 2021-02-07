@@ -1,7 +1,10 @@
 extern crate web_view;
 
-use web_view::{WebViewBuilder,WVResult};
-use web_view::Content::*;
+use web_view::WVResult;
+
+mod consts {
+    include!(concat!(env!("OUT_DIR"), "/consts.rs"));
+}
 
 fn main() {
     println!("Hello, world!");
@@ -13,9 +16,11 @@ fn main() {
 }
 
 fn run_webview() -> WVResult<()> {
+    use web_view::*;
+
     let mut wv = WebViewBuilder::new()
         .title("Hi there!")
-        .content(Html("<html><head><title>.</title><body><p>Hello, world</p></body></html>"))
+        .content(Content::Url(consts::UI_HTML))
         .size(600, 800)
         .user_data(())
         .invoke_handler(|_wv, _arg| Ok(()))
