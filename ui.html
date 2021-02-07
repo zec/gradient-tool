@@ -17,6 +17,10 @@
         flex-direction:column;
     }
 
+    .credits {
+        text-align: center;
+    }
+
     .gradient {
         display: flex;
         align-items: center;
@@ -155,6 +159,8 @@
 <input id="quant" type="range" min="0" max="1" value="1" step="any" />
 </div>
 </div>
+<p class="credits">Interactive gradient tool from Raph Levien,<br>
+<a href="https://raphlinus.github.io/color/2021/01/18/oklab-critique.html">An interactive review of Oklab</a></p>
 <script>
 // The following code is licensed under Apache-2.0 license as indicated in
 // the "About" page of this blog.
@@ -546,6 +552,35 @@ function install_ui() {
 }
 install_ui();
 update();
+
+// TODO: onclick
+document.addEventListener(
+  'click',
+  function(e) {
+    var t = e.target;
+    window.external.invoke('click ' + t.toString() + ' ' + (typeof t));
+    window.external.invoke(' ' + t.prototype);
+    if (t instanceof URL) {
+        window.external.invoke('URL (URL object): ' + t.href);
+        e.preventDefault();
+        return false;
+    }
+    if (typeof t === 'string' || t instanceof String) {
+        window.external.invoke('URL (string): ' + t);
+        e.preventDefault();
+        return false;
+    }
+    if (t.tagName === 'a') {
+        var url = t.getAttribute('href');
+        window.external.invoke('URL (a element): ' + url);
+        e.preventDefault();
+        return false;
+    }
+    return true;
+  },
+  true
+);
+
 </script>
 </body>
 </html>

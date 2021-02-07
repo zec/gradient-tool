@@ -19,11 +19,11 @@ fn run_webview() -> WVResult<()> {
     use web_view::*;
 
     let mut wv = WebViewBuilder::new()
-        .title("Hi there!")
+        .title("Color space gradient tool")
         .content(Content::Url(consts::UI_HTML))
         .size(600, 800)
         .user_data(())
-        .invoke_handler(|_wv, _arg| Ok(()))
+        .invoke_handler(|_wv, arg| { println!("{}", arg); Ok(())})
         .build()?;
 
     wv.run()?;
