@@ -20,10 +20,6 @@ extern crate webbrowser;
 
 use web_view::WVResult;
 
-mod consts {
-    include!(concat!(env!("OUT_DIR"), "/consts.rs"));
-}
-
 fn main() {
     let result = run_webview();
 
@@ -33,18 +29,21 @@ fn main() {
     }
 }
 
+const UI_HTML: &'static str = include_str!("../ui.html");
+
 fn run_webview() -> WVResult<()> {
     use web_view::*;
 
-    let wv = WebViewBuilder::new()
+    let mut wv = WebViewBuilder::new()
         .title("Color space gradient tool")
-        .content(Content::Url(consts::UI_HTML))
+        .content(Content::Url("data:text/html,%20"))
         .size(600, 800)
         .min_size(600, 50)
         .user_data(())
         .invoke_handler(|_wv, arg| { drop(webbrowser::open(arg)); Ok(())})
         .build()?;
 
+    wv.set_html(UI_HTML)?;
     wv.run()?;
 
     Ok(())

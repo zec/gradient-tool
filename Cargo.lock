@@ -120,7 +120,6 @@ dependencies = [
 name = "gradient-tool"
 version = "0.0.1"
 dependencies = [
- "urlencoding",
  "web-view",
  "webbrowser",
 ]
