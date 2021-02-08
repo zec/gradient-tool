@@ -1,2 +1,9 @@
+# Build targets
 /target
 /gradient-tool
+
+# Editor tempfiles, last-saved files, etc.
+*.swp
+*.swo
+~*
+*~
