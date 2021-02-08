@@ -40,6 +40,7 @@ fn run_webview() -> WVResult<()> {
         .title("Color space gradient tool")
         .content(Content::Url(consts::UI_HTML))
         .size(600, 800)
+        .min_size(600, 50)
         .user_data(())
         .invoke_handler(|_wv, arg| { drop(webbrowser::open(arg)); Ok(())})
         .build()?;
