@@ -4,9 +4,20 @@ version = "0.0.1"
 authors = ["Zachary Catlin <z@zc.is>"]
 edition = "2018"
 license = "Apache-2.0"
+repository = "https://github.com/zec/gradient-tool"
+description = "Quick GUI tool for visualizing linear color gradients in several color spaces"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 web-view = "^0.7"
 webbrowser = "^0.5"
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+debug = 0
+debug-assertions = false
+incremental = false
+rpath = false

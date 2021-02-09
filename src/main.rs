@@ -36,7 +36,7 @@ fn run_webview() -> WVResult<()> {
 
     let mut wv = WebViewBuilder::new()
         .title("Color space gradient tool")
-        .content(Content::Url("data:text/html,%20"))
+        .content(Content::Url("data:text/plain,%20"))
         .size(600, 800)
         .min_size(600, 50)
         .user_data(())
