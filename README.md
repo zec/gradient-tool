@@ -1,5 +1,4 @@
 # gradient-tool
----
 
 This is a quick porting of the color gradient tool from
 [this blog post] into a standalone program. Also, it was an excuse for me to
