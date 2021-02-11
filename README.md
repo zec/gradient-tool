@@ -6,11 +6,14 @@ try out the [webview] crate for HTML/JS GUIs in desktop Rust applications.
 
 <img src="https://zec.github.io/gradient-tool/screenshot.png" alt="screenshot of gradient-tool" width="465" height="650" />
 
+Before building, be sure to install the [prerequisites] for webview.
+
 The HTML/JavaScript is &copy; 2021 [Raph Levien]; the Rust is &copy; 2021
 [Zachary Catlin]. Both parts are [Apache licensed].
 
 [this blog post]: https://raphlinus.github.io/color/2021/01/18/oklab-critique.html
 [webview]: https://github.com/Boscop/web-view
+[prerequisites]: https://github.com/Boscop/web-view#prerequisites
 [Raph Levien]: https://levien.com/
 [Zachary Catlin]: https://github.com/zec
 [Apache licensed]: https://www.apache.org/licenses/LICENSE-2.0
